@@ -6,13 +6,17 @@ var input_stdin_array = "";
 var input_currentline = 0;
 
 process.stdin.on('data', function (data) {
+    console.log("My Data: ", data)
     input_stdin += data;
 });
 
-process.stdin.on('end', function () {
-    input_stdin_array = input_stdin.split("\n");
-    main();
-});
+// process.stdin.on('end', function () {
+//     input_stdin_array = input_stdin.split("\n");
+//     main();
+// });
+
+input_stdin_array = [4,3,6,10,9];
+main();
 
 function readLine() {
     return input_stdin_array[input_currentline++];
@@ -64,5 +68,7 @@ function main(){
         var data=parseInt(readLine());
         head=mylist.insert(head,data);
     }
-    mylist.display(head);
+    console.log(typeof(head));
+    // mylist.display(head);
+    console.log(head);
 }
