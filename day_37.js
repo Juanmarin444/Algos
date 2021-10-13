@@ -33,6 +33,36 @@ class LinkedList {
     }
     this.size++;
   }
+  // Insert at index
+  insertAt(data, index) {
+    // If index is out of range.
+    if (index > 0 && index > this.size) {
+      return;
+    }
+    // If first index zero
+    if (index === 0) {
+      this.head = new Node(data, this.head);
+      return;
+    }
+
+    var node = new Node(data);
+    let current, previous;
+
+    //set current to first
+    current = this.head;
+    let count = 0;
+
+    while(count < index) {
+      previous = current; // Node before index
+      count++;
+      current = current.next; // Node after index
+    }
+
+    node.next = current;
+    previous.next = node;
+
+    this.size++;
+  }
 }
 
 let my_list = new LinkedList()
@@ -42,10 +72,13 @@ my_list.insertFirst("chicken");
 // console.table(my_list);
 
 my_list.insertFirst("cow");
-console.log(JSON.stringify(my_list));
+// console.log(JSON.stringify(my_list));
 
 my_list.insertLast("pig");
 console.log(JSON.stringify(my_list));
 
 my_list.insertLast("horse");
+console.log(JSON.stringify(my_list));
+
+my_list.insertAt("goat", 3);
 console.log(JSON.stringify(my_list));
