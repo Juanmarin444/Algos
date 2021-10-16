@@ -63,6 +63,19 @@ class LinkedList {
 
     this.size++;
   }
+  // Get at index
+  getAt(index) {
+    let current = this.head;
+    let count = 0;
+    while(current) {
+      if (count === index) {
+        console.log(current.data);
+      }
+      count++;
+      current = current.next;
+    }
+    return null;
+  }
 }
 
 let my_list = new LinkedList()
@@ -82,3 +95,6 @@ console.log(JSON.stringify(my_list));
 
 my_list.insertAt("goat", 3);
 console.log(JSON.stringify(my_list));
+
+my_list.getAt(3);
+my_list.getAt(2);
