@@ -76,6 +76,28 @@ class LinkedList {
     }
     return null;
   }
+  // Remove at index
+  removeAt(index) {
+    if (index > 0 && index > this.size) {
+      return;
+    }
+    let current = this.head;
+    let previous,
+    count = 0;
+    // Remove first
+    if (index === 0) {
+      this.head = current.next;
+    } else { // if index is not equal to 0
+      while (count < index) {
+        count++;
+        previous = current;
+        current = current.next;
+      }
+      previous.next = current.next;
+
+    }
+    this.size--;
+  }
 }
 
 let my_list = new LinkedList()
@@ -98,3 +120,6 @@ console.log(JSON.stringify(my_list));
 
 my_list.getAt(3);
 my_list.getAt(2);
+
+my_list.removeAt(3);
+console.log(JSON.stringify(my_list));
