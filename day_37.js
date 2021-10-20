@@ -98,6 +98,11 @@ class LinkedList {
     }
     this.size--;
   }
+  // Clear list
+  clearList() {
+    this.head = null;
+    this.size = 0;
+  }
 }
 
 let my_list = new LinkedList()
@@ -122,4 +127,7 @@ my_list.getAt(3);
 my_list.getAt(2);
 
 my_list.removeAt(3);
+console.log(JSON.stringify(my_list));
+
+my_list.clearList();
 console.log(JSON.stringify(my_list));
