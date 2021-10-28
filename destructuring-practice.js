@@ -29,3 +29,35 @@ console.log(leader); // => Numbuh 1
 console.log(pilot_tech); // => Numbuh 2
 console.log(medic); // => Numbuh 3
 console.log(second_in_command); // => Numbuh 5
+
+// Nested Destructuring
+
+const numbuh_one = {
+  firstName: "Nigel",
+  lastName: "Uno",
+  sector: "Sector V",
+  specialty: "Leader of Sector V",
+  codeName: "Numbuh One",
+  addresses: [
+    {
+      address: '1600 Pennsylvania Avenue',
+      city: 'Washington, D.C.',
+      zipcode: '20500',
+    },
+    {
+      address: '221B Baker St.',
+      city: 'London',
+      zipcode: 'WC2N 5DU',
+    }
+  ],
+  createdAt: 1543945177623
+}
+
+// we want individual addresses as variables
+// destructure addresses then destructure each addresses
+const { addresses: addressesList } = numbuh_one;
+const { addresses: [whitehouse, sherlock] } = numbuh_one;
+//
+console.log("whitehouse", whitehouse); // {address: '1600 Pennsylvania Avenue', city: 'Washington, D.C.', zipcode: '20500',}
+console.log("sherlock", sherlock); // {address: '221B Baker St.',  city: 'London',  zipcode: 'WC2N 5DU'}
+console.log("addressesList", addressesList); // [{...}, {...}] list of addresses
