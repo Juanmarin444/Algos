@@ -61,3 +61,71 @@ const { addresses: [whitehouse, sherlock] } = numbuh_one;
 console.log("whitehouse", whitehouse); // {address: '1600 Pennsylvania Avenue', city: 'Washington, D.C.', zipcode: '20500',}
 console.log("sherlock", sherlock); // {address: '221B Baker St.',  city: 'London',  zipcode: 'WC2N 5DU'}
 console.log("addressesList", addressesList); // [{...}, {...}] list of addresses
+
+// we want to skip the first address and only want the city of the second, whilst using an alt. name
+
+const { addresses: [ , { city: london }] } = numbuh_one;
+
+console.log('city: ', london);
+
+const fruits = ["apple", "banana", "cherry"];
+for (const fruit of fruits.entries()) {
+  console.log(fruit); // [0, apple] -> [1, banana] -> [2, cherry]
+}
+
+// I can now use destructuing coolness in our for loop
+
+for(const [index, fruit] of fruits.entries()) {
+  console.log(`${fruit} was found at index ${index}!`);
+}
+
+const test = Object.entries(person);
+console.log(test); // [[firstName, Bob], [lastName, Marley],[...][...]]
+
+for([key, value] of Object.entries(person)) {
+  console.log(`${key} has the value of ${value}`);
+}
+
+console.log('======================================');
+
+const myFarm = {
+  owner: ['juan', 'andrew'],
+  money: 389000.00,
+  loan: 21000.00,
+  vehicles: {
+    tractors: {
+      newHolland: ['T8 Series', 'T5 Series'],
+      claas: ['Xerion 5000', 'Axion 960'],
+      fiat: ['Fiat 180-90']
+    },
+    combines: {
+      newHolland: ['CR Revelation'],
+      claas: ['Claas Lexion 8000']
+    },
+    wheeleLoaders: {
+      jcb: ['457 Wheel Loader'],
+      cat: ['972M XE Wheel Loader']
+    }
+  }
+}
+
+const { money: dinero } = myFarm;
+console.log(`Your farm is worth $${dinero}`);
+
+const { loan } = myFarm;
+console.log(`Your are $${loan} in debt!`);
+
+const { vehicles } = myFarm;
+console.log(vehicles);
+
+const { vehicles: { tractors } } = myFarm;
+console.log(tractors);
+
+const { vehicles: { tractors: { claas } } } = myFarm;
+console.log(claas);
+
+const { vehicles: { tractors: { claas: [ , axion] } } } = myFarm;
+console.log(axion);
+
+const { vehicles: { combines: { claas: [lexion] } } } = myFarm;
+console.log(lexion);
