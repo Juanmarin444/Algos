@@ -32,3 +32,37 @@ const [ ...myAnimals ] = animals;
 console.log(myAnimals);
 console.log(secondAnimal);
 console.log(firstAnimal);
+
+//// Desctructuring with objects using spread and rest ////
+
+const myFarm = {
+  owner: ['juan', 'andrew'],
+  money: 389000.00,
+  loan: 21000.00,
+  vehicles: {
+    tractors: {
+      newHolland: ['T8 Series', 'T5 Series'],
+      claas: ['Xerion 5000', 'Axion 960'],
+      fiat: ['Fiat 180-90']
+    },
+    combines: {
+      newHolland: ['CR Revelation'],
+      claas: ['Claas Lexion 8000']
+    },
+    wheeleLoaders: {
+      jcb: ['457 Wheel Loader'],
+      cat: ['972M XE Wheel Loader']
+    }
+  }
+}
+
+// making a copy of myFarm
+const myFarmCopy = { ...myFarm };
+
+console.log(myFarmCopy);
+console.log(myFarmCopy.vehicles === myFarm.vehicles);
+
+
+const { owner, ...otherFarmAttributes } = myFarmCopy;
+console.log(`The owners of the farm are ${owner}.`);
+console.log(otherFarmAttributes);
