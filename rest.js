@@ -22,3 +22,13 @@ console.log(minTwo(10, 92, 17, 31, 22), 'this is using es6 REST');
 function min(...numbers) {
   return Math.min(...numbers); // ...numbers spreads the elements to our call to Math.min
 }
+
+/// DESTRUCTURING WITH SPREAD OPERATOR
+
+const animals = ['horse', 'dog', 'fish', 'cat', 'bird'];
+const [ firstAnimal, secondAnimal, ...otherAnimals] = animals;
+console.log(otherAnimals);
+const [ ...myAnimals ] = animals;
+console.log(myAnimals);
+console.log(secondAnimal);
+console.log(firstAnimal);
