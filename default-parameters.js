@@ -26,7 +26,7 @@ console.log("======================");
 //// DEFAULT PARAMETERS WITH ES6 NOW!!!!! /////////
 
 function isRequired(name) {
-  throw new Error(name + ' is required')
+  // throw new Error(name + ' is required')
 }
 
 function calcPayment3(price = isRequired('price'), salesTax = 0.047, discount = 0) {
@@ -61,3 +61,58 @@ function login2({ email = 'some@email.com', password = 'superPass', username = '
 
 login2();
 login2(credentials);
+console.log("===========================");
+
+//// Enhanced Object literals////
+var name = 'Forrest';
+var height = '5ft 8in';
+var email = 'forrest@gump.com';
+var forrest = {
+  name: name,
+  email: email,
+  height: height,
+};
+
+// can now be made using
+
+var forrest = {
+  name,
+  email,
+  height
+}
+// and can even work with functions aswell
+
+function sayHello(name) {
+  console.log(`hello ${name}!`);
+}
+
+sayHello('Juan')
+
+var forrestImproved = {
+  name,
+  email,
+  height,
+  sayHello
+}
+// or
+
+var forrestImproved2 = {
+  name,
+  email,
+  sayHello2(name) {
+    console.log(`hello ${name}!`);
+  }
+}
+forrestImproved2.sayHello2('Juan Two')
+// NOTE: OMISSION OF THE FUNCTION KEYWORD
+
+const skill = 'run';
+const skillDescription = 'I like running';
+const forrestAwesome = {
+  name: name,
+  email: email,
+  height: height,
+  [skill]: skillDescription,
+};
+
+console.log(forrestAwesome);
